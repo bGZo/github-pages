@@ -1,28 +1,13 @@
-# 垃圾场
+# Github Pages
 
-![](https://img.shields.io/github/repo-size/bGZo/playground?style=flat-square)
+This is a temporary repo for github pages preview.
 
-![](https://raw.githack.com/bGZo/assets/dev/2025/202508021439235.JPG)
+## Quick Start
 
-## Merge me
-
-Add the remote repository:
-
-```shell
-git remote add origin git@github.com:bGZo/playground.git
-```
-
-Fetch the `dev` branch from the remote repository:
-
-```shell
-git fetch origin dev
-```
-
-Merge the `dev` branch into your local repository to get started:
-
-```shell
-git merge origin/dev --allow-unrelated-histories
-```
+1. Copy sh file in project.
+2. Edit your varible in sh file.
+3. `chmod +x *.sh`
+4. Run and push force, then waiting for building.
 
 ## License
 
