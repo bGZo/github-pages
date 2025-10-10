@@ -1,0 +1,190 @@
+<!DOCTYPE html><html lang="en" data-astro-cid-k74dcqyt> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width"><link rel="icon" type="image/svg+xml" href="https://bgzo.github.io/github-pages/favicon.svg"><meta name="generator" content="Astro v5.14.1"><title>Astro Basics</title><link rel="stylesheet" href="/github-pages/_astro/blog.DKcBzMiO.css">
+<style>.admonition{border-left:4px solid #8b8b8b;padding:8px 16px;margin:1.25em 0}.admonition>p{margin:0}.admonition>.admonition-title{color:#8b8b8b;margin-bottom:16px;font-weight:700}.admonition.note{border-color:#539bf5}.admonition.note>.admonition-title{color:#539bf5}.admonition.important{border-color:#986ee2}.admonition.important>.admonition-title{color:#986ee2}.admonition.tip{border-color:#57ab5a}.admonition.warning{border-color:#c69026}.admonition.warning>.admonition-title{color:#c69026}.admonition.caution{border-color:#e5534b}.admonition.caution>.admonition-title{color:#e5534b}.admonition.danger{border-color:#e5534b}.admonition.danger>.admonition-title{color:#e5534b}
+</style>
+<link rel="stylesheet" href="/github-pages/_astro/_cursor_.7QCN2VPs.css"></head> <body data-astro-cid-k74dcqyt>  <div class="flex justify-between px-4 py-4 mx-auto sm:px-8 max-w-2xl"> <nav class="text-gray-700 space-x-4 left-1"> <a href="https://bgzo.github.io/github-pages/" class>Home</a><a href="https://bgzo.github.io/github-pages/blog" class>Blog</a><a href="https://bgzo.github.io/github-pages/talk" class>Talk</a><a href="https://bgzo.github.io/github-pages/tool" class>Tool</a><a href="https://bgzo.github.io/github-pages/project" class>Project</a> </nav> </div> <div class="prose px-4 py-10 m-auto sm:px-8 sm:rounded-lg max-w-2xl sm:shadow bg-white ring-1 ring-gray-200">  <article> <span class="title">Giving up Logseq</span> <p class="text-gray-600 text-sm">Created: 2024/12/09 | Updated: 2025/06/30 | Reading Time: 4 min read </p> <p>![[toc]]</p>
+<h1 id="giving-up-logseq">Giving up Logseq</h1>
+<p>Okey, I know it’s ridiculous and hard to say: <strong>I give up [[logseq-logseq]]</strong>.</p>
+<p>I’ve used it 3 years, and make 1400 pages. Honestly, I’m not a good one using it, especially in earlier version, they released very fast, I even don’t know when they add the support of markdown YAML properties.<sup><a href="#user-content-fn-earier-logseq" id="user-content-fnref-earier-logseq" data-footnote-ref="" aria-describedby="footnote-label">1</a></sup></p>
+<h2 id="fatal-problem-hard-to-build-a-huge-system">Fatal Problem: hard to build a huge system</h2>
+<p>What part of logseq annoy me following:</p>
+<h3 id="the-performance-never-comes-to-usable-in-a-large-context">The performance never comes to usable in a large context.</h3>
+<h3 id="outline-render">Outline render</h3>
+<h3 id="historical-baggage">Historical baggage</h3>
+<p>As I said above, features applied again and again, which break the the whole construction of PKM as well. That means, the <strong>downward compatibility</strong> of system is impossible and difficult.</p>
+<p>I need to break my PKM three times, and finally I give up it. Since enabled telegram inbox + telegram RSS bot, I was fell into the hell of poor performance.</p>
+<p>In a word, it’s wasting time and no worth any more.</p>
+<h4 id="hard-to-share--read-with-raw-format">Hard to share &#x26; read with raw format</h4>
+<p>The active user on community I know is xxx, which shared opinions via LOGSEQ format.</p>
+<p>How to comment? I agree this is a simple and awesome way. But it’s really hard to read and understand as well.</p>
+<h3 id="database-version">Database version</h3>
+<p>Now official has announced,<sup><a href="#user-content-fn-announced" id="user-content-fnref-announced" data-footnote-ref="" aria-describedby="footnote-label">2</a></sup> and alpha test has started. The double preview way is available following:</p>
+<ul>
+<li><a href="https://logseq-db-demo.pages.dev/">https://logseq-db-demo.pages.dev/</a></li>
+<li><a href="https://test.logseq.com/#/">https://test.logseq.com/#/</a></li>
+</ul>
+<p>I meet some imported problem, such as <code>excludelist</code> config on <code>config.edn</code> would not ignore when imported, <code>no uuid found for page name nil</code>.</p>
+<p>When I delete the pdf annotations, and imported most of them, I was so excited to try reviewing notes on database version. I sadly notice:</p>
+<ul>
+<li><strong>Query is slower</strong> then MV.</li>
+<li><strong>Page is easier to be stuck</strong> then MV.
+<ul>
+<li>Breaking up browser and need to be relaunched.</li>
+</ul>
+</li>
+<li><strong>Editing block is so difficult</strong> as same as MV.</li>
+</ul>
+<p>Compared to MV, database is not solving any problems on performance. And you are losing the support of <code>template</code>, <code>schedule</code>, sync local pure markdown file (cooperated with other tools base on pure text), and desktop plugins support.</p>
+<p>They really have a very very long way to reach. I have no time to wait them.</p>
+<h2 id="switch-obsidian-notes">Switch [[obsidian]] Notes</h2>
+<h3 id="replace-all-properties--with-yaml-format">Replace all properties <code>::</code> with <code>yaml</code> format</h3>
+<p>replace <code>yaml</code> to <code>::</code> is easy. But using regex to replace <code>::</code> to <code>yaml</code> is a hard thing.</p>
+<p>But there is something worth to try</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="diff"><code><span class="line"><span style="color:#FDAEB7"><span style="user-select: none;">-</span>Org-mode syntax</span></span>
+<span class="line"><span style="color:#6A737D">#\+BEGIN_PIN\n([ ]+)</span></span>
+<span class="line"><span style="color:#6A737D">#\+BEGIN_PINNED\n([ ]*)</span></span>
+<span class="line"><span style="color:#6A737D">#\+BEGIN_PIN\n([ ]+)</span></span>
+<span class="line"><span style="color:#6A737D">#\+BEGIN_EXAMPLE\n([ ]+)</span></span>
+<span class="line"><span style="color:#6A737D">#\+BEGIN_NOTE\n([ ]+)</span></span>
+<span class="line"><span style="color:#6A737D">#\+BEGIN_WARNING\n([ ]+)</span></span>
+<span class="line"><span style="color:#6A737D">#\+BEGIN_IMPORTANT\n([ ]+)</span></span>
+<span class="line"><span style="color:#85E89D"><span style="user-select: none;">+</span>>[!tip]\n$1</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FDAEB7"><span style="user-select: none;">-</span> no used property</span></span>
+<span class="line"><span style="color:#E1E4E8">[ ]*closed: .*\n</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FDAEB7"><span style="user-select: none;">-</span> shadule time</span></span>
+<span class="line"><span style="color:#E1E4E8">^\s*\* State "DONE" from "WAIT".*$\</span></span>
+<span class="line"><span style="color:#E1E4E8">[ ]+:LOGBOOK:[\n]+[ ]+:END:\n([ ]+)</span></span>
+<span class="line"><span style="color:#E1E4E8">[ ]+:LOGBOOK:\n[ ]*:END:\n([ ]+)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FDAEB7"><span style="user-select: none;">-</span> no use break line</span></span>
+<span class="line"><span style="color:#E1E4E8">^-\n</span></span>
+<span class="line"><span style="color:#E1E4E8">\n---\n[^\n ]</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FDAEB7"><span style="user-select: none;">-</span> attachments</span></span>
+<span class="line"><span style="color:#FFAB70">! \[(.*)\]\(\.\./assets</span></span>
+<span class="line"><span style="color:#FFAB70">![$1](../assets</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FDAEB7"><span style="user-select: none;">-</span> properties</span></span>
+<span class="line"><span style="color:#E1E4E8">([ ]*)- title: \[(.*?)\]\((.*)\)</span></span>
+<span class="line"><span style="color:#E1E4E8">$1- title: $2\n$1  source: $3</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">&#x3C;div class='text-center'>via: &#x3C;a href='(.*?)' target='_blank' class='external-link'>(.*?)&#x3C;/a>&#x3C;/div></span></span>
+<span class="line"><span style="color:#E1E4E8">&#x3C;center>via: &#x3C;a href='$1' target='_blank' class='external-link'>$1&#x3C;/a>&#x3C;/center></span></span></code></pre>
+<h3 id="properties">Properties</h3>
+<h4 id="date-not-link-journals">Date not link journals</h4>
+<h4 id="date-format-shown">Date format shown</h4>
+<p><a href="https://forum.obsidian.md/t/properties-let-the-user-customize-the-way-dates-times-are-displayed-independently-from-os/64139/34?page=3">Properties: let the user customize the way Dates/Times are displayed (independently from OS) - Feature requests - Obsidian Forum</a></p>
+<h4 id="value-cannot-be-a-image">Value cannot be a image</h4>
+<p>That not impossible with <code>![]()</code> as value. Yet use link and format it on dataview query.</p>
+<p><a href="https://forum.obsidian.md/t/how-do-you-dynamically-embed-a-picture-tied-to-a-metadata-value/54011">https://forum.obsidian.md/t/how-do-you-dynamically-embed-a-picture-tied-to-a-metadata-value/54011</a></p>
+<h3 id="plugins">Plugins</h3>
+<h4 id="obsidianmd-obsidian-clipper1f4ed6web-cliper-template">[[obsidianmd-obsidian-clipper#^1f4ed6|Web Cliper template]]</h4>
+<h4 id="reminder">Reminder</h4>
+<h4 id="chinese-tools">Chinese Tools</h4>
+<h4 id="turn-to-page">Turn to page</h4>
+<h4 id="agenda">Agenda</h4>
+<h4 id="markmap">Markmap</h4>
+<h4 id="web-parser">Web parser</h4>
+<h3 id="hotkey">Hotkey</h3>
+<ul>
+<li><code>alt+a/d</code> outliner move</li>
+<li><code>ctrl+enter</code> task switch</li>
+<li><code>command+1</code> heading switch</li>
+<li><a href="https://forum.obsidian.md/t/easily-switch-between-source-mode-live-preview-preview/27151">Easily switch between source mode &#x3C;-> live preview &#x3C;-></a></li>
+<li><a href="https://www.reddit.com/r/ObsidianMD/comments/ydc48j/is_there_a_plugin_for_changing_blocks_locations/">Is there a plugin for changing blocks locations? : r/ObsidianMD</a></li>
+</ul>
+<h3 id="graph">Graph</h3>
+<ul>
+<li>local graph</li>
+<li>global graph</li>
+<li><a href="https://forum.obsidian.md/t/global-graph-view-open-with-currently-active-note-highlighted/245/13">Global graph view: open with currently active note highlighted - Feature archive - Obsidian Forum</a></li>
+</ul>
+<h3 id="miss-macros">Miss macros</h3>
+<ul>
+<li><a href="https://forum.obsidian.md/t/iframe/14296/3">Iframe - Help - Obsidian Forum</a></li>
+<li><a href="https://forum.obsidian.md/t/simple-macros/44009">Simple macros? - Help - Obsidian Forum</a></li>
+<li><a href="https://www.reddit.com/r/ObsidianMD/comments/1aufiav/what_are_the_creative_ways_to_use_iframes/">What are the creative ways to use iframes … : r/ObsidianMD</a></li>
+</ul>
+<h3 id="pdf-annotations">PDF annotations</h3>
+<ul>
+<li><a href="https://curtismchale.ca/2023/11/08/handle-pdfs-natively-in-obsidian/">Handle PDFs Natively in Obsidian – Curtis McHale</a></li>
+</ul>
+<h3 id="css">CSS</h3>
+<h4 id="image-size">Image size</h4>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="css"><code><span class="line"><span style="color:#6A737D">/* via: https://forum.obsidian.md/t/resize-image/6517/17</span></span>
+<span class="line"><span style="color:#6A737D">*/</span></span>
+<span class="line"><span style="color:#B392F0">.markdown-preview-view</span><span style="color:#85E89D"> img</span><span style="color:#E1E4E8">[</span><span style="color:#B392F0">alt</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">"sm"</span><span style="color:#E1E4E8">] {</span></span>
+<span class="line"><span style="color:#79B8FF">  width</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">max</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">300</span><span style="color:#F97583">px</span><span style="color:#E1E4E8">,</span><span style="color:#79B8FF">30</span><span style="color:#F97583">%</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#79B8FF">  max-height</span><span style="color:#E1E4E8">:</span><span style="color:#79B8FF">auto</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"><span style="color:#B392F0">.markdown-preview-view</span><span style="color:#85E89D"> img</span><span style="color:#E1E4E8">[</span><span style="color:#B392F0">alt</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">"md"</span><span style="color:#E1E4E8">] {</span></span>
+<span class="line"><span style="color:#79B8FF">  width</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">max</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">500</span><span style="color:#F97583">px</span><span style="color:#E1E4E8">,</span><span style="color:#79B8FF">50</span><span style="color:#F97583">%</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#79B8FF">  max-height</span><span style="color:#E1E4E8">:</span><span style="color:#79B8FF">auto</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"><span style="color:#B392F0">.markdown-preview-view</span><span style="color:#85E89D"> img</span><span style="color:#E1E4E8">[</span><span style="color:#B392F0">alt</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">"lg"</span><span style="color:#E1E4E8">] {</span></span>
+<span class="line"><span style="color:#79B8FF">  width</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">max</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">1080</span><span style="color:#F97583">px</span><span style="color:#E1E4E8">,</span><span style="color:#79B8FF">70</span><span style="color:#F97583">%</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#79B8FF">  max-height</span><span style="color:#E1E4E8">:</span><span style="color:#79B8FF">auto</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
+<h4 id="iframe">Iframe</h4>
+<div class="admonition warning">
+<p class="admonition-title">warning</p>
+<p>Some video cannot be iframed.
+That would be unavailable.
+If iframe the whole page, the video will be played automatically.
+via: <a href="https://forum.obsidian.md/t/youtube-video-unavailable/61107">https://forum.obsidian.md/t/youtube-video-unavailable/61107</a>
+<a href="https://stackoverflow.com/questions/44839312/disable-auto-play-in-youtube-embeded-code">https://stackoverflow.com/questions/44839312/disable-auto-play-in-youtube-embeded-code</a></p>
+</div>
+<h4 id="code-block-with-no-wrap">Code block with no wrap</h4>
+<ul>
+<li><a href="https://forum.obsidian.md/t/disable-word-wrap-for-code-blocks/13210/16">https://forum.obsidian.md/t/disable-word-wrap-for-code-blocks/13210/16</a></li>
+</ul>
+<h4 id="full-width-cssclasses">Full width cssclasses</h4>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="css"><code><span class="line"><span style="color:#6A737D">/*</span></span>
+<span class="line"><span style="color:#6A737D"> * via: https://forum.obsidian.md/t/optional-full-width-note-css/15444/19</span></span>
+<span class="line"><span style="color:#6A737D"> */</span></span>
+<span class="line"><span style="color:#B392F0">.wide-view</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#FFAB70">    --custom-line-width</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">100</span><span style="color:#F97583">%</span><span style="color:#E1E4E8">; </span><span style="color:#6A737D">/* &#x3C;- change this */</span></span>
+<span class="line"><span style="color:#FFAB70">    --file-line-width</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">var</span><span style="color:#E1E4E8">(</span><span style="color:#FFAB70">--custom-line-width</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#85E89D">body</span><span style="color:#B392F0">.minimal-theme.minimal-theme</span><span style="color:#B392F0"> .wide-view</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#FFAB70">    --line-width</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">var</span><span style="color:#E1E4E8">(</span><span style="color:#FFAB70">--custom-line-width</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#FFAB70">    --max-width</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">95</span><span style="color:#F97583">%</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
+<h3 id="query">Query</h3>
+<h4 id="exclude-some-folder">Exclude some folder</h4>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="diff"><code><span class="line"><span style="color:#FDAEB7"><span style="user-select: none;">-</span>path: foldername</span></span></code></pre>
+<ul>
+<li><a href="https://www.reddit.com/r/ObsidianMD/comments/w6p5xc/how_do_i_exclude_templates_from_this_dataview/">https://www.reddit.com/r/ObsidianMD/comments/w6p5xc/how_do_i_exclude_templates_from_this_dataview/</a></li>
+<li><a href="https://forum.obsidian.md/t/exclude-templates-folder-from-file-explorer-graph/5012/7">https://forum.obsidian.md/t/exclude-templates-folder-from-file-explorer-graph/5012/7</a></li>
+</ul>
+<p>More Query</p>
+<ul>
+<li><a href="https://publish.obsidian.md/tasks/Queries/About+Queries">https://publish.obsidian.md/tasks/Queries/About+Queries</a></li>
+<li><a href="https://forum.obsidian.md/t/dataview-how-to-specify-the-order-of-properties/69721">https://forum.obsidian.md/t/dataview-how-to-specify-the-order-of-properties/69721</a></li>
+</ul>
+<h3 id="embed-files">Embed files</h3>
+<p>Only support local embed <sup><a href="#user-content-fn-embed-file" id="user-content-fnref-embed-file" data-footnote-ref="" aria-describedby="footnote-label">3</a></sup></p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="shell"><code><span class="line"><span style="color:#F97583">!</span><span style="color:#E1E4E8">[[demo.pdf]]</span></span></code></pre>
+<p>Not support http embed.</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="shell"><code><span class="line"><span style="color:#F97583">!</span><span style="color:#E1E4E8">[](</span><span style="color:#B392F0">https://github.com/assets/demo.pdf</span><span style="color:#E1E4E8">)</span></span></code></pre>
+<h3 id="others">Others</h3>
+<ul>
+<li>Use spaces instead of tab: <a href="https://forum.obsidian.md/t/use-tabs-off-only-replaces-tabs-with-spaces-in-lists/3583">https://forum.obsidian.md/t/use-tabs-off-only-replaces-tabs-with-spaces-in-lists/3583</a></li>
+<li><a href="https://forum.obsidian.md/t/show-location-of-currently-open-file/41903">Show location of currently open file - Feature requests - Obsidian Forum</a></li>
+<li><a href="https://www.reddit.com/r/ObsidianMD/comments/zh0ih2/any_way_to_disable_line_wrapping_in_code_blocks/">Any way to disable line wrapping in code blocks? : r/ObsidianMD</a></li>
+</ul>
+<section data-footnotes="" class="footnotes"><h2 class="sr-only" id="footnote-label">Footnotes</h2>
+<ol>
+<li id="user-content-fn-earier-logseq">
+<p>in earlier version, they released fast, I used to learn feature via changelog. the hierachy is using via twitter, the macros via community discuss. and even someone analyze the logic of language, break it into pieces, and try explain it with Logseq. <a href="#user-content-fnref-earier-logseq" data-footnote-backref="" aria-label="Back to reference 1" class="data-footnote-backref">↩</a></p>
+</li>
+<li id="user-content-fn-announced">
+<p><a href="https://discuss.logseq.com/t/why-the-database-version-and-how-its-going/26744/25">Why the database version and how it’s going? - Announcements - Logseq</a> <a href="#user-content-fnref-announced" data-footnote-backref="" aria-label="Back to reference 2" class="data-footnote-backref">↩</a></p>
+</li>
+<li id="user-content-fn-embed-file">
+<p><a href="https://help.obsidian.md/Linking+notes+and+files/Embed+files">https://help.obsidian.md/Linking+notes+and+files/Embed+files</a> <a href="#user-content-fnref-embed-file" data-footnote-backref="" aria-label="Back to reference 3" class="data-footnote-backref">↩</a></p>
+</li>
+</ol>
+</section> </article>  </div> <div class="footer text-center flex justify-center items-center p-4 text-gray-400"> <p>&copy; 2025 - Present. Made by bGZo. All rights reserved.</p> </div>  </body></html>

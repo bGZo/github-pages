@@ -1,0 +1,28 @@
+<!DOCTYPE html><html lang="en" data-astro-cid-k74dcqyt> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width"><link rel="icon" type="image/svg+xml" href="https://bgzo.github.io/github-pages/favicon.svg"><meta name="generator" content="Astro v5.14.1"><title>Astro Basics</title><link rel="stylesheet" href="/github-pages/_astro/blog.DKcBzMiO.css">
+<style>.admonition{border-left:4px solid #8b8b8b;padding:8px 16px;margin:1.25em 0}.admonition>p{margin:0}.admonition>.admonition-title{color:#8b8b8b;margin-bottom:16px;font-weight:700}.admonition.note{border-color:#539bf5}.admonition.note>.admonition-title{color:#539bf5}.admonition.important{border-color:#986ee2}.admonition.important>.admonition-title{color:#986ee2}.admonition.tip{border-color:#57ab5a}.admonition.warning{border-color:#c69026}.admonition.warning>.admonition-title{color:#c69026}.admonition.caution{border-color:#e5534b}.admonition.caution>.admonition-title{color:#e5534b}.admonition.danger{border-color:#e5534b}.admonition.danger>.admonition-title{color:#e5534b}
+</style>
+<link rel="stylesheet" href="/github-pages/_astro/_cursor_.7QCN2VPs.css"></head> <body data-astro-cid-k74dcqyt>  <div class="flex justify-between px-4 py-4 mx-auto sm:px-8 max-w-2xl"> <nav class="text-gray-700 space-x-4 left-1"> <a href="https://bgzo.github.io/github-pages/" class>Home</a><a href="https://bgzo.github.io/github-pages/blog" class>Blog</a><a href="https://bgzo.github.io/github-pages/talk" class>Talk</a><a href="https://bgzo.github.io/github-pages/tool" class>Tool</a><a href="https://bgzo.github.io/github-pages/project" class>Project</a> </nav> </div> <div class="prose px-4 py-10 m-auto sm:px-8 sm:rounded-lg max-w-2xl sm:shadow bg-white ring-1 ring-gray-200">  <article> <span class="title">迁移 Logseq 数据库版本</span> <p class="text-gray-600 text-sm">Created: 2024/10/26 | Updated: 2025/06/30 | Reading Time: 2 min read </p> <p>![[toc]]</p>
+<h1 id="迁移-logseq-数据库版本">迁移 Logseq 数据库版本</h1>
+<p>Logseq DB 宣布完成已经有两个月的时间了 <sup><a href="#user-content-fn-logseq-db-done" id="user-content-fnref-logseq-db-done" data-footnote-ref="" aria-describedby="footnote-label">1</a></sup>。因为还在早期测试阶段，这个去年起草的 PR 一直处在草稿状态。</p>
+ <iframe src="https://github.com/logseq/logseq/pull/9858" style="height:40vh;width:100%" class="iframe-radius" allow="fullscreen"></iframe>
+<center>via: <a href="https://github.com/logseq/logseq/pull/9858" target="_blank" class="external-link">https://github.com/logseq/logseq/pull/9858</a></center>
+<p>数据库版本的诸多新特性，如文章目录、更快的全局搜索、更多的变量类型，高数据量、大页面的性能问题可能被解决，这些当然值得期待，但弊端和新挑战也非常多，比如 Markdown 文件与数据库的同步，如何兼容旧版本的诸多特性（相当于用 DB 重新把以前的功能实现一遍），这光是想想就令人头大。</p>
+<h2 id="遇到的问题">遇到的问题</h2>
+<ul>
+<li><strong>Properties</strong>: like <code>icon</code>, <code>created</code>, <code>file</code>, <code>file-path</code>, <code>hl-stamp</code> would be ignored.</li>
+<li><strong>Syntax</strong>: org mode, like <code>&#x3C;</code>, would be abandoned.</li>
+<li><strong>Value of property</strong>: cannot be macro data.</li>
+<li><strong>PDF annotate</strong>: <code>edn</code> file would be ignored as well.</li>
+<li>Others
+<ul>
+<li>too long assets name with <code>%xxx</code></li>
+</ul>
+</li>
+</ul>
+<section data-footnotes="" class="footnotes"><h2 class="sr-only" id="footnote-label">Footnotes</h2>
+<ol>
+<li id="user-content-fn-logseq-db-done">
+<p><a href="https://discuss.logseq.com/t/why-the-database-version-and-how-its-going/26744">https://discuss.logseq.com/t/why-the-database-version-and-how-its-going/26744</a>, <a href="https://discuss.logseq.com/t/its-hard-to-migrate-to-the-logseq-db-version-for-logseq-md-users-logically-speaking-about-the-new-tag-feature-and-removed-namespace/28558">https://discuss.logseq.com/t/its-hard-to-migrate-to-the-logseq-db-version-for-logseq-md-users-logically-speaking-about-the-new-tag-feature-and-removed-namespace/28558</a> <a href="#user-content-fnref-logseq-db-done" data-footnote-backref="" aria-label="Back to reference 1" class="data-footnote-backref">↩</a></p>
+</li>
+</ol>
+</section> </article>  </div> <div class="footer text-center flex justify-center items-center p-4 text-gray-400"> <p>&copy; 2025 - Present. Made by bGZo. All rights reserved.</p> </div>  </body></html>
